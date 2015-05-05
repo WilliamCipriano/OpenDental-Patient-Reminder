@@ -11,6 +11,7 @@ These instructions are for installs on the server but there is no reason why you
 1. Install python 2.7.9 [Here](https://www.python.org/downloads/ "Python 2.7 install")
 2. Install MySql's python connector [Here](https://dev.mysql.com/downloads/connector/python/ "MySql python connector")
 3. Install twilio's python module [Here](https://www.twilio.com/docs/python/install "twilio python module")
+4. Download and copy OpenDental-Patient-Reminder to your hard drive.
 4. Modify config.ini to match your twillio settings.
 5. Modify OD-Appointment-Sender.py to reflect your database details.
 6. Set up a task with windows task scheduler to be run daily.
@@ -20,3 +21,12 @@ config.ini Example:
 SID = Your SID  
 AUTH = Your auth key  
 NUMBER = The phone number  
+
+OD-Appointment-Sender.py Example:  
+config = {  
+  'user': 'root',  
+  'password': '',  
+  'host': '127.0.0.1',  
+  'database': 'opendental',  
+  'raise_on_warnings': True,  
+}
