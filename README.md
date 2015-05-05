@@ -5,7 +5,7 @@ Patient activator cost = $200 month
 Callfire text message cost = $0.05  
 Twilio cost per text message = $0.0075  
 
-Simple install instructions (for windows):
+Simple install instructions (for windows):  
 These instructions are for installs on the server but there is no reason why you can't run it someplace else. This is assuming you have a fairly standard OpenDental setup but should work for most of them. This is only a mildly technical install but I recommend backing up your database before attempting any of this. Please send any bugs or issues to ODPR@wfc.help.
 
 1. Install python 2.7.9 [Here](https://www.python.org/downloads/ "Python 2.7 install")
