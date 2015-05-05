@@ -6,7 +6,7 @@ Callfire text message cost = $0.05
 Twilio text message cost  = $0.0075  
 
 Simple install instructions (for windows):  
-These instructions are for installs on the server but there is no reason why you can't run it someplace else. This is assuming you have a fairly standard OpenDental setup but should work for most of them. This is only a mildly technical install but I recommend backing up your database before attempting any of this (in fact I run  [this](https://github.com/WilliamCipriano/WillBackup "WillBackup") hourly to prevent any problems.) Please send any bugs or issues to ODPR@wfc.help.
+These instructions are for installs on the server but there is no reason why you can't run it someplace else. This is assuming you have a fairly standard OpenDental setup but should work for most of them. This is only a mildly technical install (some knowlage of python might come in handy, but is not required) but I recommend backing up your database before attempting any of this (in fact I run  [this](https://github.com/WilliamCipriano/WillBackup "WillBackup") hourly to prevent any problems.) Please send any bugs or issues to ODPR@wfc.help.
 
 1. Install python 2.7.9 [Here](https://www.python.org/downloads/ "Python 2.7 install")
 2. Install MySql's python connector [Here](https://dev.mysql.com/downloads/connector/python/ "MySql python connector")
