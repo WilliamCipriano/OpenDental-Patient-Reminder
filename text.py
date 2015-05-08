@@ -1,7 +1,8 @@
 from twilio.rest import TwilioRestClient
 import configuration
 
-#configuration gets the config.ini from the hard drive and loads it for twilio to use, this depends on the twilio python module.
+#configuration gets the config.ini from the hard drive and loads it for twilio to use.
+#this script depends on the twilio python module.
 
 def send_sms(sid, token, sender, recipient, message):
     account_sid = sid
