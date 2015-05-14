@@ -2,7 +2,7 @@
 Daily reminders and automatic patient confirmation for your clients from within opendental.
 
 Patient activator cost = $200 / month  
-Callfire cost = $0.05 / text
+Callfire cost = $0.05 / text  
 Twilio cost  = $0.0075 / text
 
 Simple install instructions (for windows):  
