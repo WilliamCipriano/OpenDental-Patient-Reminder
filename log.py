@@ -12,7 +12,7 @@ log_path = path + '\logs\\'
 
 #Program details (these are just placed at the start of the log file, might help with version tracking etc)
 app_name = 'OpenDental-Patient-Reminder'
-app_version = '0.0.1 Alpha'
+app_version = '0.0.2 Alpha'
 app_author = 'Will Cipriano'
 app_email = 'logs@wfc.help'
 email_subject = 'OpenDental-Patient-Reminder Error (Please Include All Logs)'
