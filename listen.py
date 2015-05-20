@@ -59,7 +59,7 @@ def text_responder():
             confirmnote = "Confirmed automatically at: " + datetime.now().strftime('%I:%M %p')
             query = ("UPDATE appointment SET Confirmed = 21 WHERE AptNum = " + str(result[0]))
             cursor.execute(query)
-            query = ("UPDATE appointment SET note = if(note is null, ' " + confirmnote + "', concat(note, '\n" + confirmnote + "'))")
+            query = ("UPDATE appointment SET note = if(note = '', '" + confirmnote + "', concat(note, '\n" + confirmnote + "'))")
             cursor.execute(query)
             message = "Your appointment has been confirmed."
         except Exception as ex:
