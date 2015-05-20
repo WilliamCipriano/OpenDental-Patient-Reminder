@@ -2,11 +2,16 @@ from flask import Flask, request, redirect
 import twilio.twiml
 import log
 import mysql.connector
+from datetime import datetime
 
 #Checks for a Y or Yes response from the patient
 def CheckForYes(string):
     string = string.lstrip(' ')[:3]
     if string == 'Yes':
+        return True
+    if string == 'YES':
+        return True
+    if string == 'yES':
         return True
     if string == 'yes':
         return True
@@ -51,7 +56,10 @@ def text_responder():
             log.write('Database Error:' + str(ex), file = 'Recived-Log.html')
         try:
             #confirm the appointment if he does
+            confirmnote = "Confirmed automatically at: " + datetime.now().strftime('%I:%M %p')
             query = ("UPDATE appointment SET Confirmed = 21 WHERE AptNum = " + str(result[0]))
+            cursor.execute(query)
+            query = ("UPDATE appointment SET note = if(note is null, ' " + confirmnote + "', concat(note, '\n" + confirmnote + "'))")
             cursor.execute(query)
             message = "Your appointment has been confirmed."
         except Exception as ex:
