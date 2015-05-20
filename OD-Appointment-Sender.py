@@ -15,8 +15,8 @@ delta24h = timedelta(hours=13)
 date = time.strftime("%Y-%m-%d")
 patient_cell_number = []
 patient_appointment_time = []
-address = ""
-callbacknumber = ""
+address = "123 fake street"
+callbacknumber = "(555)-1212"
 
 #Will not send reminders to patients scheduled before this time.
 reminder_hour = 9
@@ -53,10 +53,10 @@ for patient in cursor:
 x = 0
 for number in patient_cell_number:
     appt_time = patient_appointment_time[x].strftime('%I:%M %p')
-    msg = "This is a reminder of your appointment today scheduled for " + appt_time + " at " + address + " Please text back 'Yes' or call us at " + callbacknumber " to confirm."
+    msg = "This is a automated reminder of your appointment today scheduled for " + appt_time + " at " + address + " Please text back 'Yes' or call us at " + callbacknumber + " to confirm."
+    print msg
     print 'Sending reminder # ' + str(x + 1) + " of " + str(len(patient_cell_number))
     try:
-        text.msg(number, msg)
         log.write("Reminder Sent - Cell Number: " + number + " Time: " + patient_appointment_time[x].strftime('%I:%M %p'), file = 'Send-Log.html')
     except Exception as ex:
         log.write("Reminder Failure - Cell Number: " + number + " Time: " + patient_appointment_time[x].strftime('%I:%M %p') + ' Exception: ' + ex, file = 'Send-Log.html')
