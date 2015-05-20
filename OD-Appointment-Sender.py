@@ -36,7 +36,7 @@ cursor = cnx.cursor()
 
 log.write("\n Beginning to send appointment reminders for: " + date, file = 'Send-Log.html')
 
-query = ("SELECT appointment.PatNum as Number, AptDateTime as Time, patient.WirelessPhone as Phone, patient.TxtMsgOk as Txt FROM appointment INNER JOIN patient on appointment.PatNum=patient.PatNum WHERE DATE(AptDateTime) = DATE('" + date + "') AND AptStatus = 1 GROUP BY Time;")
+query = ("SELECT appointment.PatNum as Number, AptDateTime as Time, patient.WirelessPhone as Phone, patient.TxtMsgOk as Txt FROM appointment INNER JOIN patient on appointment.PatNum=patient.PatNum WHERE DATE(AptDateTime) = DATE('" + date + "') AND AptStatus = 1 ORDER BY Time;")
 cursor.execute(query)
 print "Patients Acquired"
 
