@@ -37,4 +37,4 @@ config = {
 Version Log:  
 ALPHA  
 0.0.1 - Added basic reminder functionalty  
-0.0.2. - Added abilty to automaticly confirm patients  
+0.0.2. - Added abilty to automatically confirm patients  
