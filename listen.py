@@ -44,9 +44,10 @@ def text_responder():
     fromnum = request.values.get('From', None)
     body = request.values.get('Body', None)
 
+    num = fromnum[2:]
+    num = '(' + num[:3] + ')' + num[3:6] + '-' + num[6:10]
+
     if CheckForYes(body): 
-        num = fromnum[2:]
-        num = '(' + num[:3] + ')' + num[3:6] + '-' + num[6:10]
         try:
             #see if patient exists
             query = ("SELECT AptNum, patient.PatNum, patient.WirelessPhone FROM appointment INNER JOIN patient on appointment.PatNum=patient.PatNum WHERE date(AptDateTime) = CURDATE() and WirelessPhone = '" + str(num) + "'")
@@ -60,13 +61,27 @@ def text_responder():
             query = ("UPDATE appointment SET Confirmed = 21 WHERE AptNum = " + str(result[0]))
             cursor.execute(query)
             query = ("UPDATE appointment SET note = concat(note, '\n" + confirmnote + "') WHERE AptNum=" + str(result[0]))
-            log.write(query)
             cursor.execute(query)
             message = "Your appointment has been confirmed."
         except Exception as ex:
             log.write('Database Error:' + str(ex), file = 'Recived-Log.html')
         log.write('Appointment confirmed for patient number: ' + str(result[1]), file = 'Recived-Log.html')
     else:
+        try:
+        #see if patient exists
+            query = ("SELECT AptNum, patient.PatNum, patient.WirelessPhone FROM appointment INNER JOIN patient on appointment.PatNum=patient.PatNum WHERE date(AptDateTime) = CURDATE() and WirelessPhone = '" + str(num) + "'")
+            cursor.execute(query)
+            result = cursor.fetchone()
+        except Exception as ex:
+            log.write('Database Error:' + str(ex), file = 'Recived-Log.html')
+
+        try:
+            confirmnote = "Patient Failed to confirm on, " + datetime.now().strftime('%I:%M %p') + " with message: " + body
+            query = ("UPDATE appointment SET note = concat(note, '\n" + confirmnote + "') WHERE AptNum=" + str(result[0]))
+            cursor.execute(query)
+        except Exception as ex:
+            log.write('Database Error:' + str(ex), file = 'Recived-Log.html')
+
         message = "I'm sorry, I didn't get that. Please send Yes to confirm or call to cancel."
         log.write('Confirm failed with message: ' + body, file = 'Recived-Log.html')
         
