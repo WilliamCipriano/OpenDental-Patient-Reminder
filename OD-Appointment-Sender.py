@@ -15,6 +15,8 @@ delta24h = timedelta(hours=13)
 date = time.strftime("%Y-%m-%d")
 patient_cell_number = []
 patient_appointment_time = []
+address = ""
+callbacknumber = ""
 
 #Will not send reminders to patients scheduled before this time.
 reminder_hour = 9
@@ -51,7 +53,7 @@ for patient in cursor:
 x = 0
 for number in patient_cell_number:
     appt_time = patient_appointment_time[x].strftime('%I:%M %p')
-    msg = "This is a reminder of your appointment today scheduled for " + appt_time + " at Liberty Place 1625 Chestnut St. Please text back Yes or call us at (215)336-8399 to confirm."
+    msg = "This is a reminder of your appointment today scheduled for " + appt_time + " at " + address + " Please text back 'Yes' or call us at " + callbacknumber " to confirm."
     print 'Sending reminder # ' + str(x + 1) + " of " + str(len(patient_cell_number))
     try:
         text.msg(number, msg)
