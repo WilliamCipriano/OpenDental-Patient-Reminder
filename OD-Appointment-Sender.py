@@ -24,7 +24,7 @@ patient_appointment_time = []
 #Will not send reminders to patients scheduled before this time.
 reminder_hour = 9
 #How many seconds to wait before closing the program.
-wait_on_close = 30
+wait_on_close = 10800
 #How many seconds to wait between messages.
 send_delay = 1
 
@@ -73,5 +73,8 @@ log.write(str(x) + ' patient reminders have been sent. Waiting ', file = 'Overal
 #Send out email alerts if enabled.
 if email_logs:
     log.email(file = 'Overall.html')
+    
+#Wait a while to gather the recieved log and then send it to hq
+if email_logs:
+    time.sleep(wait_on_close)
     log.email(file = 'Recived-Log.html')
-time.sleep(wait_on_close)
