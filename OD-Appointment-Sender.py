@@ -13,6 +13,7 @@ import log
 #Office Details
 address = "123 fake street"
 callbacknumber = "(555)-1212"
+email_logs = True
 
 #Variables
 delta24h = timedelta(hours=13)
@@ -68,4 +69,7 @@ for number in patient_cell_number:
     x += 1
 print "Patient reminders sent"
 log.write(str(x) + ' patient reminders have been sent. Waiting ', file = 'Overall.html')
+if email_logs:
+    log.email(file = 'Overall.html')
+    log.email(file = 'Recived-Log.html')
 time.sleep(wait_on_close)
