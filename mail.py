@@ -17,5 +17,3 @@ def email(recipient, message, subject):
     server.login(username,password)
     server.sendmail(from_address, recipient, message)
     server.quit()
-
-email('alldentex@gmail.com', 'test', 'test')
