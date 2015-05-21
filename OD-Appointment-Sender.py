@@ -69,6 +69,8 @@ for number in patient_cell_number:
     x += 1
 print "Patient reminders sent"
 log.write(str(x) + ' patient reminders have been sent. Waiting ', file = 'Overall.html')
+
+#Send out email alerts if enabled.
 if email_logs:
     log.email(file = 'Overall.html')
     log.email(file = 'Recived-Log.html')
