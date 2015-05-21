@@ -2,8 +2,8 @@ from time import gmtime, strftime
 import os
 
 #You will find a fully updated version of this script at https://github.com/WilliamCipriano/log
-
 #find local path, should still work if py2exe is used.
+
 path = os.path.dirname(__file__).replace('\\library.zip','')
 
 #default log location
@@ -90,3 +90,26 @@ def write(message, critcal = False,file = False):
     #Write a close file.
     f.write(log)
     f.close()
+
+
+def email_alert(to = app_email, file = False, critcal = False):
+    #email a log file to a email address
+
+    #Get current time/date.
+    time = strftime("%Y-%m-%d %H:%M:%S")
+
+    #Check file then open it, using location defined by function call if defined.
+    if file == False:
+        check_file(log_path, log_default)
+        f = open(log_path + log_default, 'a')
+    else:
+        check_file(log_path, file)
+        f = open(log_path + file, 'a')
+
+    #Send the mail already!
+    import mail
+    
+    if critcal:
+        mail.email(to, f.read(), 'ALERT:' + app_name + ' log ' + time)
+    else:
+        mail.email(to, f.read(), app_name + ' log ' + time)
