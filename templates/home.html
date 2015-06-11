@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenDental Reports</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="container-fluid">
+    <div class=".col.md-8">
+	<h2>OpenDental Reports</h2>
+	</div>
+	<p>
+	<div class="row">
+	
+	<div class="col-xs-6 col-md-4">
+	<b>Quick Reports:</b><br>
+    <a class="btn btn-default" href="chart/appointmentview">180 day appointment view</a><br>
+    <a class="btn btn-default" href="chart/incomebycarrier">90 day income by carrier</a><br>
+    <a class="btn btn-default" href="chart/todayspayments">Payments made today</a><br>
+	<a class="btn btn-default" href="chart/yesterdayspayments">Payments made yesterday</a><br>
+	
+	<P>
+	<br>
+	
+	<b>Text Message Logs:</b><br>
+	<a class="btn btn-default" href="logs/sent">Sent</a><br>
+	<a class="btn btn-default" href="logs/received">Received</a><br>
+	</div>
+	
+	<div class="col-xs-6 col-md-2">
+	<h3>Practice Overview</h3>
+	<br>
+	<B>Today</B><br>
+	Total Appointments: {{ AppointmentsToday }}<br>
+	Completed Appointments: {{ CompletedAppointmentsToday }}<br>
+	Broken Appointments: {{ BrokenAppointmentsToday }}<br>
+	Total Production: ${{ ProductionToday }}<br>
+	Total Employees Utilized: {{ EmployeesWorked }}<br>
+	<P><BR>
+	<B>Last 30 days</B><br>
+	Total Appointments: {{ Appointments30days }}<br>
+	Completed Appointments: {{ CompletedAppointments30 }}<br>
+	Broken Appointments: {{ BrokenAppointments30 }}<br>
+	Total Production: ${{ Production30 }}<br>
+	<P><BR>
+	<B>Last 365 days</B><br>
+	Total Appointments: {{ Appointments365days }}<br>
+	Completed Appointments: {{ CompletedAppointments365 }}<br>
+	Broken Appointments: {{ BrokenAppointments365 }}<br>
+	Total Production: ${{ Production365 }}<br>
+	<br>
+	<font size="1">Note: Production is estimated and does not include adjustments or write offs.</font>
+	</div>
+	
+	</div>
+   </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>
