@@ -1,7 +1,11 @@
 # OpenDental-Patient-Reminder
 Daily reminders and automatic patient confirmation for your clients from within opendental.
 
-This project is no longer maintained. (I left the dental industry) Feel free to fork it to keep it up to date.
+
+
+This project is no longer maintained. (I left the dental industry) Feel free to fork it to keep it up to date if you wish. As far as I know it still works as of this writing (April 8th 2016)
+
+
 
 Patient activator cost = $200 / month  
 Callfire cost = $0.05 / text  
